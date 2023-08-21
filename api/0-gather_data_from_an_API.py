@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Write a Python script that, using this REST API, for a given employee ID, returns information about his/her TODO list progress.
+Write a Python script that, using this REST API, for a given employee ID\
+returns information about his/her TODO list progress.
 """
 
 import requests
@@ -26,9 +27,14 @@ def fetch_employee_data(employee_id):
 
     return user_data, todos_data
 
+
 def main():
     """
-    The main function is the entry point of the script. It takes an employee ID as a command-line argument, fetches user data and todos data for that employee from an API using the fetch_employee_data function, and then prints a summary of the employee's completed tasks.
+    The main function is the entry point of the script. 
+    It takes an employee ID as a command-line argument,
+    fetches user data and todos data for that employee from
+    an API using the fetch_employee_data function,
+    and then prints a summary of the employee's completed tasks.
     """
     employee_id = int(sys.argv[1])
     user_data, todos_data = fetch_employee_data(employee_id)
@@ -37,7 +43,8 @@ def main():
     total_tasks = len(todos_data)
     done_tasks = sum(1 for task in todos_data if task['completed'])
 
-    print(f'Employee {employee_name} is done with tasks({done_tasks}/{total_tasks}):')
+    print(f'Employee {employee_name} is done with tasks\
+        ({done_tasks}/{total_tasks}):')
 
     for task in todos_data:
         if task['completed']:
