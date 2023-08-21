@@ -45,7 +45,7 @@ Fetches employee data and todos data for all employees ID from an API and \
     for user in users_data:
         employee_id = user['id']
         user_data, todos_data = fetch_employee_data(employee_id)
-        
+
         EMPLOYEE_NAME = user_data['username']
         USER_ID = user_data['id']
 
