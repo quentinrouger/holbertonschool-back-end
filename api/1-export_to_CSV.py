@@ -43,8 +43,10 @@ Fetches employee data and todos data for a given employee ID from an API and \
     csv_file_name = f'{USER_ID}.csv'
 
     with open(csv_file_name, mode='w', newline='') as csv_file:
-        fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
-        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+        fieldnames = ["USER_ID", "USERNAME",
+                      "TASK_COMPLETED_STATUS", "TASK_TITLE"]
+        csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames,
+                                    quoting=csv.QUOTE_ALL)
 
         for task in todos_data:
             csv_writer.writerow({
@@ -53,6 +55,7 @@ Fetches employee data and todos data for a given employee ID from an API and \
                 "TASK_COMPLETED_STATUS": task.get("completed"),
                 "TASK_TITLE": task.get("title")
             })
+
 
 if __name__ == '__main__':
     main()
