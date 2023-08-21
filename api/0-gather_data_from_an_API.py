@@ -39,12 +39,12 @@ def main():
     employee_id = int(sys.argv[1])
     user_data, todos_data = fetch_employee_data(employee_id)
 
-    employee_name = user_data['name']
-    total_tasks = len(todos_data)
-    done_tasks = sum(1 for task in todos_data if task['completed'])
+    EMPLOYEE_NAME = user_data['name']
+    TOTAL_NUMBER_OF_TASKS = len(todos_data)
+    NUMBER_OF_DONE_TASKS = sum(1 for task in todos_data if task['completed'])
 
-    print(f'Employee {employee_name} is done with \
-        tasks({done_tasks}/{total_tasks}):')
+    print("Employee {} is done with tasks({}/{}):"
+          .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
 
     for task in todos_data:
         if task['completed']:
