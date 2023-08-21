@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Using what you did in the task #0, extend your Python script to export \
-    data in the CSV format.
+    data in the JSON format.
 """
 
 import json
@@ -32,7 +32,7 @@ def fetch_employee_data(employee_id):
 def main():
     """
 Fetches employee data and todos data for a given employee ID from an API and \
-    writes the data to a CSV file.
+    writes the data to a JSON file.
     """
     employee_id = int(sys.argv[1])
     user_data, todos_data = fetch_employee_data(employee_id)
