@@ -30,7 +30,7 @@ def fetch_employee_data(employee_id):
 
 def main():
     """
-    The main function is the entry point of the script. 
+    The main function is the entry point of the script.
     It takes an employee ID as a command-line argument,
     fetches user data and todos data for that employee from
     an API using the fetch_employee_data function,
@@ -43,8 +43,8 @@ def main():
     total_tasks = len(todos_data)
     done_tasks = sum(1 for task in todos_data if task['completed'])
 
-    print(f'Employee {employee_name} is done with tasks\
-        ({done_tasks}/{total_tasks}):')
+    print(f'Employee {employee_name} is done with \
+        tasks({done_tasks}/{total_tasks}):')
 
     for task in todos_data:
         if task['completed']:
