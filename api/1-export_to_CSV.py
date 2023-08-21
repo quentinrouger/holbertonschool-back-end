@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-Write a Python script that, using this REST API, for a given employee ID\
-returns information about his/her TODO list progress.
+Using what you did in the task #0, extend your Python script to export \
+    data in the CSV format.
 """
 
 import csv
@@ -31,16 +31,13 @@ def fetch_employee_data(employee_id):
 
 def main():
     """
-    The main function is the entry point of the script.
-    It takes an employee ID as a command-line argument,
-    fetches user data and todos data for that employee from
-    an API using the fetch_employee_data function,
-    and then prints a summary of the employee's completed tasks.
+Fetches employee data and todos data for a given employee ID from an API and \
+    writes the data to a CSV file.
     """
     employee_id = int(sys.argv[1])
     user_data, todos_data = fetch_employee_data(employee_id)
 
-    EMPLOYEE_NAME = user_data['name']
+    EMPLOYEE_NAME = user_data['username']
     USER_ID = user_data['id']
 
     csv_file_name = f'{USER_ID}.csv'
@@ -48,8 +45,6 @@ def main():
     with open(csv_file_name, mode='w', newline='') as csv_file:
         fieldnames = ["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"]
         csv_writer = csv.DictWriter(csv_file, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
-        
-        csv_writer.writeheader()
 
         for task in todos_data:
             csv_writer.writerow({
